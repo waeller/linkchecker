@@ -154,6 +154,8 @@ class HttpUrl (internpaturl.InternPatternUrl, proxysupport.ProxySupport):
     def build_request(self):
         """Build a prepared request object."""
         clientheaders = {}
+        if "authorization" in self.aggregate.config:
+            clientheaders["Authorization"] = self.aggregate.config["authorization"]
         if (self.parent_url and
             self.parent_url.lower().startswith(HTTP_SCHEMAS)):
             clientheaders["Referer"] = self.parent_url
