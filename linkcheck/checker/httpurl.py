@@ -181,8 +181,6 @@ class HttpUrl (internpaturl.InternPatternUrl, proxysupport.ProxySupport):
     def _send_request(self, request, **kwargs):
         """Send GET request."""
         log.debug(LOG_CHECK, "Send request %s with %s", request, kwargs)
-        # disable compression - seems to cause problems
-        request.headers['Accept-Encoding'] = None
         log.debug(LOG_CHECK, "Request headers %s", request.headers)
         self.url_connection = self.session.send(request, **kwargs)
         self.headers = self.url_connection.headers
