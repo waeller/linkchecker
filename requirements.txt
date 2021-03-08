@@ -1,5 +1,6 @@
 # required:
 requests>=2.2.0
+zipp==3.4.0
 # optional:
 argcomplete
 # for testing:
